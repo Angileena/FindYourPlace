@@ -1,0 +1,44 @@
+﻿   <!--Pagination -->
+<nav class="my-4 pt-2">   
+    <ul class="pagination pagination-circle pg-voilet mb-0">
+
+        <!--First-->
+        <li class="page-item clearfix d-none d-md-block" [ngClass]="{'disabled': currentPage === minPage}"><button class="page-link" (click)="getFirst()">First</button></li>
+
+        <!--Arrow left-->
+        <li class="page-item" [ngClass]="{'disabled': currentPage === minPage}">
+            <button class="page-link" aria-label="Previous" (click)="onPrev()">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+            </button>
+        </li>
+
+        <!--Numbers-->
+        <li class="page-item" *ngFor="let pageNum of getPages()"
+            [ngClass]="{'active': pageNum === currentPage}"><button class="page-link" (click)="onPage(pageNum)">{{ pageNum }}</button></li>
+        <!--Arrow right-->
+        <li class="page-item" [ngClass]="{'disabled': lastPage()}">
+            <button class="page-link" aria-label="Next" (click)="onNext(true)">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+            </button>
+        </li>
+
+        <!--Last-->
+        <li class="page-item clearfix d-none d-md-block" [ngClass]="{'disabled': lastPage()}"><button class="page-link" (click)="getLast()">Last</button></li>
+
+        <!-- Number of items per page -->
+        <li class="pl-5">
+            Items per page:
+            <select id="numOfItemsPerPage" name="numOfItemsPerPage" [(ngModel)]="numOfItemsPerPage" (change)="onNumOfItemsPerPageChange($event.target.value)">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="0">All</option>
+            </select>
+        </li>
+
+    </ul>
+</nav>
+<!--/Pagination -->

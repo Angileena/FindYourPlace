@@ -1,21 +1,25 @@
 <div class="container">
-  <h2>Users</h2>
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th>User Id</th>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
+        <th>Name</th>
+        <th>Address</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of users; let i = index">
-        <td>{{i + 1}}</td>
-        <td>{{user.firstName}}</td>
-        <td>{{user.lastName}}</td>
-        <td>{{user.email}}</td>
+      <tr *ngFor="let venue of pageVenues; let i = index">
+        <td>{{venue.Name}}</td>
+        <td>{{venue.Address.Address1 + ', '}} {{venue.Address.City + ', '}} {{venue.Address.Country + ' - '}} {{venue.Address.PostalCode}}</td>
       </tr>
     </tbody>
   </table>
+  <div class="d-flex justify-content-center">
+    <my-pagination [currentPage]="pagination.currentPage"
+                   [perPage]="pagination.recordsPerPage"
+                   [count]="pagination.totalCount"
+                   (goPrev)="onPrev()"
+                   (goNext)="onNext()"
+                   (perPageNewValue)="perPageChange($event)"
+                   (goPage)="goToPage($event)"></my-pagination>
+</div>
 </div>

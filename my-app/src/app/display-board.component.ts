@@ -9,14 +9,8 @@ export class DisplayBoardComponent implements OnInit {
 
   constructor() { }
 
-  @Input() userCount = 0;
-  @Output() getUsersEvent = new EventEmitter();
+  @Input() venueCount = 0;
 
   ngOnInit(): void {
   }
-
-  getAllUsers() {
-    this.getUsersEvent.emit('get all users');
-  }
-
 }

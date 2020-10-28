@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { GoogleMapsModule } from '@angular/google-maps'
 
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -10,6 +11,7 @@ import { HeaderComponent } from './header/header.component';
 import { DisplayBoardComponent } from './display-board.component';
 import { UsersComponent } from './users.component';
 import { environment } from '../environments/environment';
+import { MyPaginationModule } from './app-state/shared/pagination/my-pagination.module';
 
 // state related imports
 // import { StoreModule } from '@ngrx/store';
@@ -31,6 +33,8 @@ import { environment } from '../environments/environment';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    GoogleMapsModule,
+    MyPaginationModule
     /**
      * StoreModule.forRoot is imported once in the root module, accepting a reducer
      * function or object map of reducer functions. If passed an object of
